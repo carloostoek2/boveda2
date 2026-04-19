@@ -79,7 +79,7 @@ def create_prompt():
             prompt.description = result.get("description")
             prompt.category = result.get("category", "TEXTO")
             prompt.subcategory = result.get("subcategory")
-            prompt.metadata = json.dumps(result.get("metadata", {}))
+            prompt.meta = json.dumps(result.get("metadata", {}))
             prompt.analysis_result = json.dumps(result)
             prompt.analysis_status = "COMPLETED"
 
@@ -126,7 +126,7 @@ def update_prompt(prompt_id):
             prompt.description = prompt.description or result.get("description")
             prompt.category = result.get("category", prompt.category)
             prompt.subcategory = result.get("subcategory")
-            prompt.metadata = json.dumps(result.get("metadata", {}))
+            prompt.meta = json.dumps(result.get("metadata", {}))
             prompt.analysis_result = json.dumps(result)
             prompt.analysis_status = "COMPLETED"
             prompt.tags = []

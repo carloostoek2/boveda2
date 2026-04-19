@@ -14,7 +14,7 @@ class Prompt(db.Model):
     content = db.Column(db.Text, nullable=False)
     category = db.Column(db.String(50), default="TEXTO")
     subcategory = db.Column(db.String(100))
-    metadata = db.Column(db.Text)  # JSON as text
+    meta = db.Column(db.Text)  # JSON as text
     image_url = db.Column(db.String(500))
     is_favorite = db.Column(db.Boolean, default=False)
     analysis_status = db.Column(db.String(20), default="PENDING")  # PENDING, COMPLETED, FAILED
@@ -32,7 +32,7 @@ class Prompt(db.Model):
             "content": self.content,
             "category": self.category,
             "subcategory": self.subcategory,
-            "metadata": json.loads(self.metadata) if self.metadata else None,
+            "metadata": json.loads(self.meta) if self.meta else None,
             "image_url": self.image_url,
             "is_favorite": self.is_favorite,
             "analysis_status": self.analysis_status,
